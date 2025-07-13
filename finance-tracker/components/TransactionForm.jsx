@@ -9,6 +9,9 @@ export default function TransactionForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
 
+  const CATEGORIES =['Food','Bills','Transport','Entertainment','Shopping','Others']
+  const [category, setCategory] = useState('Others');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -23,6 +26,7 @@ export default function TransactionForm() {
         body: JSON.stringify({
           amount: parseFloat(amount),
           description,
+          category,
           date,
         }),
       });
@@ -70,6 +74,15 @@ export default function TransactionForm() {
           className="w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50 text-blue-900 transition"
         />
       </div>
+      
+      <label className="block mb-1 font-semibold text-blue-900">Category</label>
+      <select value={category}
+      onChange={(e)=>setCategory(e.target.value)} className="w-full mb-4 px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50 text-blue-900 transition">
+        {CATEGORIES.map((cat)=>(
+          <option key={cat} value={cat}> {cat} </option>
+        ))}
+      </select>
+
 
       <div className="mb-4">
         <label className="block mb-1 font-semibold text-blue-900">Description</label>

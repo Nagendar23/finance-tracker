@@ -13,6 +13,12 @@ const TransactionSchema = new Schema({
     type: String,
     required: true,
   },
+  category:{
+    type:String,
+    enum:['Food','Bills','Transport','Entertainment','Shopping','Others'],
+    required:true,
+    default:'Others',
+  },
 });
 
 export default mongoose.models?.Transaction || mongoose.model("Transaction", TransactionSchema);

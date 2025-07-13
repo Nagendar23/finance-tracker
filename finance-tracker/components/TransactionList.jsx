@@ -50,8 +50,9 @@ export default function TransactionList() {
                 className="flex justify-between items-center bg-blue-50 border border-blue-200 rounded-xl p-4 hover:shadow-lg transition group"
               >
                 <div>
-                  <div className="font-bold text-blue-700 text-lg">₹{tx.amount}</div>
-                  <div className="text-sm text-blue-900">{tx.description}</div>
+                  <div className="font-bold text-blue-700 text-lg font-bold text-2xl">₹{tx.amount}</div>
+                  <div className="text-sm text-black font-semibold">{tx.category}</div>
+                  <div className="text-sm text-blue-900">[{tx.description}]</div>
                   <div className="text-xs text-blue-400">{formattedDate}</div>
                 </div>
                 <button
